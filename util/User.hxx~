@@ -1,0 +1,53 @@
+#ifndef USER_HXX_SEEN
+#define USER_HXX_SEEN
+
+#include <string>
+
+#include "Review.hxx"
+
+namespace util{
+
+  class User{
+
+  private:
+
+    std::string            fID;
+    std::string            fName;
+    int                    fNReviews;
+    Review::ReviewSet      fReviews;
+    double                 fAverageStars;
+    int                    fNUseful;
+    int                    fNFunny;
+    int                    fNCool;
+    bool                   fIsPublic;
+
+  public:
+    User(){}
+    ~User(){}
+
+    void SetID(const std::string& id){ fID = id; }
+    void SetName(const std::string& name){ fName = name; }
+    void SetNReviews(int nreviews){ fNReviews = nreviews; }
+    void AddReview(const util::Review& review){ fReviews.insert(review); }
+    void SetAverageStars(const double average){ fAverageStars = average; }
+    void SetNUseful(const int nuseful){ fNUseful = nuseful; }
+    void SetNFunny(const int nfunny){ fNFunny = nfunny; }
+    void SetNCool(const int ncool){ fNCool = ncool; }
+    void SetIsPublic(const bool ispublic){ fIsPublic = ispublic; }
+
+    std::string ID(){ return fID; }
+    std::string Name(){ return fName; }
+    int NReviews(){ return fNReviews; }
+    const Review::ReviewSet& Reviews(){ return fReviews; }
+    double AverageStars(){ return fAverageStars; }
+    int NUseful(){ return fNUseful; }
+    int NFunny(){ return fNFunny; }
+    int NCool(){ return fNCool; }
+    bool IsPublic(){ return fIsPublic; }
+
+  };
+
+}
+
+
+#endif
